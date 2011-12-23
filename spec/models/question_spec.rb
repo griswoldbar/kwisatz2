@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Question do
+describe Question::Base do
   let(:question) { subject }
 
   it "belongs to many rounds" do
-    round1 = Round.new
-    round2 = Round.new
+    round1 = Round::Base.new
+    round2 = Round::Base.new
     round1.questions << question
     round2.questions << question
     round1.questions.should include(question)
@@ -13,7 +13,7 @@ describe Question do
   end
   
   it "has many rounds" do
-    rounds = [Round.new,Round.new]
+    rounds = [Round::Base.new,Round::Base.new]
     question.rounds << rounds
     question.rounds.should include(rounds[0])
     question.rounds.should include(rounds[1])

@@ -9,15 +9,15 @@ describe Quiz do
   end
   
   it "has many rounds" do
-    rounds = [Round.new, Round.new]
+    rounds = [Round::Base.new, Round::Base.new]
     quiz.rounds << [rounds]
     quiz.rounds.should include(rounds[0])
     quiz.rounds.should include(rounds[1])
   end
   
   it "belongs to many rounds" do
-    round1 = Round.new
-    round2 = Round.new
+    round1 = Round::Base.new
+    round2 = Round::Base.new
     round1.quizzes << quiz
     round2.quizzes << quiz
     round1.quizzes.should include(quiz)

@@ -4,8 +4,9 @@ class CreateQuizItems < ActiveRecord::Migration
       t.references :quiz
       t.text :data
       t.timestamps
-      t.index :quiz_id
     end
+    
+    add_index :quiz_items, :quiz_id
     
   end
 

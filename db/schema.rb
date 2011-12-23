@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222205923) do
+ActiveRecord::Schema.define(:version => 20111222220524) do
 
   create_table "questions", :force => true do |t|
     t.text     "data"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(:version => 20111222205923) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "quiz_items", :force => true do |t|
+    t.integer  "quiz_id"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "quiz_items", ["quiz_id"], :name => "index_quiz_items_on_quiz_id"
 
   create_table "quiz_rounds", :force => true do |t|
     t.integer  "quiz_id"
@@ -36,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20111222205923) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "round_items", :force => true do |t|
+    t.integer  "round_id"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "round_items", ["round_id"], :name => "index_round_items_on_round_id"
 
   create_table "round_questions", :force => true do |t|
     t.integer "round_id"

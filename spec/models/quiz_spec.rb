@@ -24,4 +24,11 @@ describe Quiz do
     round2.quizzes.should include(quiz)
   end
   
+  it "has many quiz_items" do
+    quiz_items = [QuizItem.new, QuizItem.new]
+    quiz.quiz_items << quiz_items
+    quiz.quiz_items.should include(quiz_items[0])
+    quiz.quiz_items.should include(quiz_items[1])
+  end
+  
 end

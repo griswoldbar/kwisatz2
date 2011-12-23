@@ -40,4 +40,19 @@ describe Round do
     question2.rounds.should include(round)  
   end
   
+  it "has many round_items" do
+    round_items = [RoundItem.new, RoundItem.new]
+    round.round_items << round_items
+    round.round_items.should include(round_items[0])
+    round.round_items.should include(round_items[1])
+  end
+  
+  it "stores rounds as the correct class" do
+    quiz = FactoryGirl.create(:quiz)
+    blockbuster = Factory(:round, :type => "Blockbuster")
+    quiz.rounds << blockbuster
+    quiz.save
+    quiz.reload
+    quiz.rounds.first.should be_a(Blockbuster)
+  end
 end

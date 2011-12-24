@@ -7,6 +7,7 @@ describe QuizItem do
     quiz = FactoryGirl.create(:quiz)
     quiz.quiz_items << quiz_item
     quiz_item.quiz.should == quiz
+    expect { quiz_item.save! }.not_to raise_error
   end
 
   it "contains serialized data" do

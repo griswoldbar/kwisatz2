@@ -1,22 +1,25 @@
 require 'spec_helper'
 
 describe Question::Base do
-  let(:question) { subject }
+  let(:question) { FactoryGirl.build(:question) }
 
   it "belongs to many rounds" do
-    round1 = Round::Base.new
-    round2 = Round::Base.new
+    round1 = FactoryGirl.build(:round)
+    round2 = FactoryGirl.build(:round)
     round1.questions << question
     round2.questions << question
     round1.questions.should include(question)
     round2.questions.should include(question)
+    expect { round1.save! }.not_to raise_error
+    expect { round2.save! }.not_to raise_error
   end
   
   it "has many rounds" do
-    rounds = [Round::Base.new,Round::Base.new]
+    rounds = [FactoryGirl.build(:round),FactoryGirl.build(:round)]
     question.rounds << rounds
     question.rounds.should include(rounds[0])
     question.rounds.should include(rounds[1])
+    expect { question.save! }.not_to raise_error
   end
   
   it "needs a value in the data column" do

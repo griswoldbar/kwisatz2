@@ -3,4 +3,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "Round #{n}" }
   end
   
+  factory :jeopardy, :parent => :round, :class => "Round::Jeopardy" do
+    
+  end
+  
 end

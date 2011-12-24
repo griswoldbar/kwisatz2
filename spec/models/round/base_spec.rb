@@ -65,26 +65,27 @@ describe "Round::Base" do
 
   describe "question types" do
     before(:all) do
-      class SuitableQuestion < Question::Base; end
-      class OtherSuitableQuestion < Question::Base; end
-      class UnsuitableQuestion < Question::Base;end
-      class FakeRound < Round::Base
-        @question_types = [SuitableQuestion, OtherSuitableQuestion]
+
+      class Question::SuitableQuestion < Question::Base; end
+      class Question::OtherSuitableQuestion < Question::Base; end
+      class Question::UnsuitableQuestion < Question::Base;end
+      class Round::FakeRound < Round::Base
+        @question_types = [Question::SuitableQuestion, Question::OtherSuitableQuestion]
       end      
     end
     
     it "rejects questions of the wrong class" do
-      fakeround = FakeRound.new(FactoryGirl.attributes_for(:round))
-      fakeround.questions << UnsuitableQuestion.new(FactoryGirl.attributes_for(:question))
+      fakeround = Round::FakeRound.new(FactoryGirl.attributes_for(:round))
+      fakeround.questions << Question::UnsuitableQuestion.new(FactoryGirl.attributes_for(:question))
       expect {
         fakeround.save!
       }.to raise_error(Round::BadQuestionType)
     end
     
     it "accepts questions of the right class" do
-      fakeround = FakeRound.new(FactoryGirl.attributes_for(:round))
-      fakeround.questions << SuitableQuestion.new(FactoryGirl.attributes_for(:question))    
-      fakeround.questions << OtherSuitableQuestion.new(FactoryGirl.attributes_for(:question))    
+      fakeround = Round::FakeRound.new(FactoryGirl.attributes_for(:round))
+      fakeround.questions << Question::SuitableQuestion.new(FactoryGirl.attributes_for(:question))    
+      fakeround.questions << Question::OtherSuitableQuestion.new(FactoryGirl.attributes_for(:question))    
       expect {
         fakeround.save!
       }.not_to raise_error      

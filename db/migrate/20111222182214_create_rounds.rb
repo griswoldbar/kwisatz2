@@ -3,6 +3,7 @@ class CreateRounds < ActiveRecord::Migration
     create_table :rounds do |t|
       t.string :name
       t.string :type
+      t.text :data
       t.timestamps
     end
   end

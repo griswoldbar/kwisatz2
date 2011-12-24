@@ -1,4 +1,4 @@
-fake_data = {:text => "Why did the chicken cross the road?"}
+fake_data = QuestionData::Base.new
 
 FactoryGirl.define do
   factory :question, :class => "Question::Base" do

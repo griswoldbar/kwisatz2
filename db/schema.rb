@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222220524) do
+ActiveRecord::Schema.define(:version => 20111224183522) do
+
+  create_table "question_categories", :force => true do |t|
+    t.string "name"
+    t.text   "sub_categories"
+  end
 
   create_table "questions", :force => true do |t|
     t.text     "data"
@@ -42,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20111222220524) do
 
   create_table "quizzes", :force => true do |t|
     t.string   "name"
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20111222220524) do
   create_table "rounds", :force => true do |t|
     t.string   "name"
     t.string   "type"
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

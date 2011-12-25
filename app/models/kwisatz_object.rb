@@ -1,7 +1,6 @@
 class KwisatzObject < ActiveRecord::Base
 
   self.abstract_class = true
-  
   class << self; attr_accessor :use_custom_data_type; end  
   @use_custom_data_type = false
   

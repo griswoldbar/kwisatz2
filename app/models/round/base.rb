@@ -15,5 +15,4 @@ class Round::Base < KwisatzObject
   class << self; attr_accessor :question_types; end
   @question_types = [Question::Base]
 
-
 end

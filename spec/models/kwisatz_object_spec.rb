@@ -1,22 +1,26 @@
 require 'spec_helper'
+require 'support/temping'
+include Temping
 
 describe "KwisatzObject" do
-
   describe "Data Object association" do
     before(:each) do
-      module Thingy; end
-      module ThingyData; end
-      class Thingy::Base < KwisatzObject; end
-      class Thingy::Jeopardy < Thingy::Base; end
-      class ThingyData::Base; end
+      module ThingyData;end
+      class ThingyData::Base < KwisatzDataObject;end
+      module Thingy;end
+      Temping.create_model :base, :thingy, KwisatzObject do
+        set_table_name :thingies
+        attr_accessor :data
+      end
     end
     
     context "when a custom object" do
       before(:each) do
-        class Thingy::Jeopardy < Thingy::Base
+        Temping.create_model :jeopardy, :thingy, Thingy::Base do
           @use_custom_data_type = true
-        end
-        class ThingyData::Jeopardy;end
+        end     
+        class ThingyData::Jeopardy < ThingyData::Base;end
+        
         
       end
       
@@ -33,5 +37,7 @@ describe "KwisatzObject" do
       end
     end
   end
+
+  ActiveRecord::Base.establish_connection 'test' 
 
 end

@@ -1,0 +1,4 @@
+class KwisatzDataObject < TablelessModel
+
+  
+end

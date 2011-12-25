@@ -1,3 +1,0 @@
-class Blockbuster < Round
-
-end

@@ -1,3 +1,0 @@
-class Jeopardy < Round
-
-end

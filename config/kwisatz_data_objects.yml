@@ -1,0 +1,18 @@
+Question:
+    Base:
+        :problem:
+            String
+        :solution:
+            String
+        :categories:
+            Array
+    Blockbuster:
+        :letter:
+            String
+Round:
+    Base:
+        :question_count:
+            Integer
+        :categories:
+            Array
+      

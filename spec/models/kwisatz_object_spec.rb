@@ -5,44 +5,64 @@ include Temping
 describe "KwisatzObject" do
   describe "Data Object association" do
     before(:each) do
-      module ThingyData;end
-      class ThingyData::Base < KwisatzDataObject;end
-      module Thingy;end
-      Temping.create_model :base, :thingy, KwisatzObject do
-        set_table_name :thingies
+      module DanceData;end
+      class DanceData::Base < KwisatzDataObject;end
+      module Dance;end
+      Temping.create_model :base, :dance, KwisatzObject do
+        set_table_name :dances
         attr_accessor :data
       end
+      Temping.create_model :jeopardy, :dance, Dance::Base do;end     
+      class DanceData::Jeopardy < DanceData::Base;end      
+   
     end
     
     context "when a custom object" do
       before(:each) do
-        Temping.create_model :jeopardy, :thingy, Thingy::Base do
-          @use_custom_data_type = true
+        class Dance::Jeopardy
+          self.use_custom_data_type = true
         end     
-        class ThingyData::Jeopardy < ThingyData::Base;end
       end
       
       it "has the right associated data object" do
-        j = Thingy::Jeopardy.new
-        j.data.should be_a(ThingyData::Jeopardy)
+        j = Dance::Jeopardy.new
+        j.data.should be_a(DanceData::Jeopardy)
       end
       
     end
 
-    context "when a custom object" do
+    context "when not a custom object" do
       before(:each) do
-        Temping.create_model :jeopardy, :thingy, Thingy::Base do
-          @use_custom_data_type = false
+        class Dance::Jeopardy
+          self.use_custom_data_type = false
         end     
-        class ThingyData::Jeopardy < ThingyData::Base;end
       end
             
       it "has the right associated data object" do
-        j = Thingy::Jeopardy.new
-        j.data.should be_a(ThingyData::Base)  
+        j = Dance::Jeopardy.new
+        j.data.should be_a(DanceData::Base)  
       end
     end
   end
+  
+  # describe "data accessor methods" do
+  # 
+  #   it "has the right accessor methods" do
+  #     YAML.should_receive(:load_file).and_return("Dance" => {"Base" => {:thingy => "String"}})
+  #     module Dance; end
+  #     Temping.create_model :base, :dance, KwisatzObject do
+  #       set_table_name :dances
+  #       attr_accessor :data
+  #       self.generate_accessor_methods
+  #     end
+  #     
+  #     d = Dance::Base.new
+  #     
+  #     # d.should respond_to(:thingy)
+  #     # d.should respond_to(:thingy=)
+  #   end
+  #     
+  # end
 
   ActiveRecord::Base.establish_connection 'test' 
 

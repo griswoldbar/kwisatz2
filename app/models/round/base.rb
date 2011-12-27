@@ -1,5 +1,5 @@
 class Round::Base < KwisatzObject
-  
+  self.generate_accessor_methods
   set_table_name :rounds
   
   validates_presence_of :name

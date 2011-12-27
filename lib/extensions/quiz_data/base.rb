@@ -1,3 +1,0 @@
-class QuizData::Base
-
-end

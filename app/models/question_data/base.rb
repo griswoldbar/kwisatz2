@@ -1,6 +1,3 @@
 class QuestionData::Base < KwisatzDataObject
-
-  attr_accessor :data, :problem, :solution
-
-  
+  self.generate_accessor_methods  
 end

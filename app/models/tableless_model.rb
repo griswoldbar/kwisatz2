@@ -1,7 +1,7 @@
 class TablelessModel
 
-  # include ActiveModel::Validations
-  # 
+  include ActiveModel::Validations
+  
   # def initialize(attributes = {})
   #   @attributes = attributes
   # end

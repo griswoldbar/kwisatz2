@@ -1,3 +1,0 @@
-class RoundData::Base
-
-end

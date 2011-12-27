@@ -1,3 +1,3 @@
 class QuestionData::Jeopardy < QuestionData::Base
-
-end
+  # self.generate_accessor_methods
+end 

@@ -22,31 +22,23 @@ describe Question::Base do
     expect { question.save! }.not_to raise_error
   end
   
-  it "needs a value in the data column" do
-    question.data = nil
-    question.should_not be_valid
-  end
   
-  it "stores data as a serialized question_data object" do
+  it "stores data as a serialized hash" do
     question.data = "blah"
     expect {
       question.save
     }.to raise_error(ActiveRecord::SerializationTypeMismatch)
-    question.data = QuestionData::Base.new
+    question.data = {:thingy => "blah"}
     question.should be_valid
   end
-
-  it "accepts a problem parameter which writes to the data" do
-    question.problem = "Who shot JFK?"
-    question.data.problem.should == "Who shot JFK?"
-    question.problem.should == "Who shot JFK?"
+  
+  it "belongs to a user" do
+    user = FactoryGirl.create(:user)
+    user.questions << question
+    question.user.should == user
   end
 
-  it "accepts a solution parameter which writes to the data" do
-    question.solution = "Lee Harvey Oswald"
-    question.data.solution.should == "Lee Harvey Oswald"    
-    question.solution.should == "Lee Harvey Oswald"    
-  end
+
 
     
 end

@@ -1,5 +1,3 @@
-class Question::Jeopardy < Question::Base
-  self.use_custom_data_type = true
-  
+class Question::Jeopardy < Question::Basic  
 
 end

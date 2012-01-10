@@ -35,5 +35,11 @@ describe "Quiz::Base" do
     quiz.quiz_items.should include(quiz_items[1])
     expect { quiz.save! }.not_to raise_error
   end
-  
+
+  it "belongs to a user" do
+    user = FactoryGirl.create(:user)
+    user.quizzes << quiz
+    quiz.user.should == user
+  end
+    
 end

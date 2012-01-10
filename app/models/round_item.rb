@@ -1,4 +1,3 @@
-class RoundItem < ActiveRecord::Base
+class RoundItem < KwisatzObject
   belongs_to :round, :class_name => "Round::Base"
-  serialize :data, Hash
 end

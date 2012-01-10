@@ -1,16 +1,16 @@
-Question:
-    Base:
+:Question:
+    :Basic:
         :problem:
             String
         :solution:
             String
         :categories:
             Array
-    Blockbuster:
+    :Blockbuster:
         :letter:
             String
-Round:
-    Base:
+:Round:
+    :Basic:
         :question_count:
             Integer
         :categories:

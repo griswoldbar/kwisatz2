@@ -1,0 +1,5 @@
+-@quiz.round_count.times do |x|
+  :plain
+    $("#rounds_form").append("#{escape_javascript(render(:partial => "rounds_form", :locals => {:x => x}))}")
+    $(".quiz-round").fadeIn();
+    

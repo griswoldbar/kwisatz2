@@ -1,18 +1,14 @@
 class Round::Base < KwisatzObject
-  self.generate_accessor_methods
   set_table_name :rounds
+  class_attribute :question_types
   
-  validates_presence_of :name
-  
-  has_many :quiz_rounds, :foreign_key => :round_id
-  has_many :quizzes, :through => :quiz_rounds, :class_name => "Quiz::Base"
   has_many :round_questions, :foreign_key => :round_id
   has_many :questions, :through => :round_questions, :class_name => "Question::Base"
   has_many :round_items, :foreign_key => :round_id
+  has_many :quiz_rounds, :foreign_key => :round_id
+  has_many :quizzes, :through => :quiz_rounds, :class_name => "Quiz::Base"
+  belongs_to :user, :foreign_key => :creator_id
+  # validates_presence_of :name
   
-  serialize :data, RoundData::Base
-   
-  class << self; attr_accessor :question_types; end
-  @question_types = [Question::Base]
-
+  self.question_types=[Question::Base] #prob best if these are strings
 end

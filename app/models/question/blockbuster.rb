@@ -1,3 +1,3 @@
-class Question::Blockbuster < Question::Base
+class Question::Blockbuster < Question::Basic
   
 end

@@ -63,6 +63,12 @@ describe "Round::Base" do
     quiz.rounds.first.should be_a(Round::Blockbuster)
   end
 
+  it "belongs to a user" do
+    user = FactoryGirl.create(:user)
+    user.rounds << round
+    round.user.should == user
+  end
+  
   describe "question types" do
     before(:all) do
 
@@ -70,7 +76,7 @@ describe "Round::Base" do
       class Question::OtherSuitableQuestion < Question::Base; end
       class Question::UnsuitableQuestion < Question::Base;end
       class Round::FakeRound < Round::Base
-        @question_types = [Question::SuitableQuestion, Question::OtherSuitableQuestion]
+        self.question_types = [Question::SuitableQuestion, Question::OtherSuitableQuestion]
       end      
     end
     

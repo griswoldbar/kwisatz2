@@ -2,12 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
 gem "mysql2", "< 0.3" # 0.3.x has been dedicated to Rails 3.1
-
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem "devise"
+gem "haml"
 gem 'sqlite3'
+gem 'jquery-rails'
+gem "simple_form"
+gem "compass", ">= 0.11.7"
 
 # Use unicorn as the web server
 # gem 'unicorn'

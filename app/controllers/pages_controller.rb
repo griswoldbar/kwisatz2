@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+#testing 1.2.3
   def home
     @title="Kwisatz"
   end

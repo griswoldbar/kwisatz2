@@ -1,0 +1,3 @@
+%td{:id => "quiz-round-#{quiz_round.id}", :class => "quiz-round", :style => "display:none;"}
+  .buttons
+    =link_to "Round #{quiz_round_counter+1}", quiz_round_path(quiz_round), :remote => true

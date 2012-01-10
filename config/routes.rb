@@ -3,6 +3,7 @@ Kwisatz2::Application.routes.draw do
 
   resources :rounds
   resources :quizzes
+  resources :quiz_rounds
 
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'

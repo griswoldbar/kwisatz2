@@ -10,6 +10,9 @@ class QuizzesController < ApplicationController
         @quiz = Quiz::Base.create(params[:quiz])
         @quiz.type = "Quiz::#{params[:quiz][:type]}"
         @quiz.round_count = params[:quiz][:round_count].to_i
+        @quiz.round_count.times do
+          @quiz.quiz_rounds.create
+        end
         if @quiz.save
           render 'rounds_form', :layout => false
         end

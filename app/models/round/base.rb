@@ -11,4 +11,9 @@ class Round::Base < KwisatzObject
   # validates_presence_of :name
   
   self.question_types=[Question::Base] #prob best if these are strings
+  
+  def type_name
+    self.type.split(/::/)[1]
+  end
+  
 end

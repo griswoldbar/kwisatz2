@@ -11,16 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108141250) do
+ActiveRecord::Schema.define(:version => 20120115172325) do
+
+  create_table "categories", :force => true do |t|
+    t.string  "name"
+    t.integer "parent_category_id"
+    t.integer "creator_id"
+  end
+
+  add_index "categories", ["creator_id"], :name => "index_categories_on_creator_id"
+  add_index "categories", ["parent_category_id"], :name => "index_categories_on_parent_category_id"
+
+  create_table "object_categories", :force => true do |t|
+    t.integer "categorisable_id"
+    t.string  "categorisable_type"
+    t.integer "category_id"
+  end
+
+  add_index "object_categories", ["categorisable_id", "categorisable_type"], :name => "index_object_categories_on_categorisable_name_and_type"
+  add_index "object_categories", ["category_id"], :name => "index_object_categories_on_category_id"
 
   create_table "players", :force => true do |t|
     t.string  "name"
     t.integer "user_id"
-  end
-
-  create_table "question_categories", :force => true do |t|
-    t.string "name"
-    t.text   "sub_categories"
   end
 
   create_table "questions", :force => true do |t|

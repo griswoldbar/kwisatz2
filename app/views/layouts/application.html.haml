@@ -7,8 +7,9 @@
     /[if IE]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
     = render 'layouts/stylesheets'
-    = javascript_include_tag 'jquery'
     = javascript_include_tag 'jquery.min'
+    = javascript_include_tag 'jquery.hashchange.min'
+    = javascript_include_tag 'jquery.easytabs.min'
     / = javascript_include_tag 'jquery_ujs'
     = javascript_include_tag :defaults
     = csrf_meta_tag

@@ -5,6 +5,8 @@ class Quiz::Base < KwisatzObject
   has_many :rounds, :through => :quiz_rounds, :class_name => "Round::Base"
   has_many :quiz_rounds, :foreign_key => :quiz_id
   has_many :quiz_items, :foreign_key => :quiz_id
+  has_many :categories, through: :object_categories
+  has_many :object_categories, :as => :categorisable
   belongs_to :user, :foreign_key => :creator_id
   
   attr_accessor :round_count

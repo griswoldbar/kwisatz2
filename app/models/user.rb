@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   has_many :questions, :class_name => "Question::Base", :foreign_key => :creator_id
   has_many :quizzes, :class_name => "Quiz::Base", :foreign_key => :creator_id
   has_many :rounds, :class_name => "Round::Base", :foreign_key => :creator_id
+  has_many :categories, :foreign_key => :creator_id
   
 end

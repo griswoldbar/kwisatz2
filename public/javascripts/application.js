@@ -4,7 +4,9 @@
 
 $(document).ready(function(){
 
+  $('#rounds_form').easytabs(); 
 
+  
   	// AttachDataListener();
 });
 

@@ -12,7 +12,7 @@ gem "simple_form"
 gem "jquery-rails"
 gem "compass"
 gem "html5-boilerplate"
-gem "mysql2", "0.2.7" # 0.3.x has been dedicated to Rails 3.1
+gem "mysql2", "0.3.7" # 0.3.x has been dedicated to Rails 3.1
 gem "devise", "1.5.3"
 
 

@@ -1,7 +1,0 @@
-= form_for @quiz_round, :remote => true do |f|
-  %fieldset
-    %dl
-      %dt= f.label :round_name
-      %dd= select_tag "round[id]", options_for_select(['New Round']+Round::Base.all.map{|round| ["#{round.id} #{round.name}",round.id]})
-    .buttons
-      = submit_tag 'Submit', :id => "quiz_round_submit"

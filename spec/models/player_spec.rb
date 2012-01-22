@@ -21,4 +21,7 @@ describe Player do
     player.user = nil
     player.should_not be_valid
   end
+  
+  
+  
 end

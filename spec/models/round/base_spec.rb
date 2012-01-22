@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Round::Base" do
+describe Round::Base do
   let(:round) { FactoryGirl.build(:round)}
   it "requires a name" do
     round = Round::Base.new
@@ -9,49 +9,37 @@ describe "Round::Base" do
     round.should be_valid
   end
   
-  it "has many quizzes" do
-    quizzes = [FactoryGirl.build(:quiz), FactoryGirl.build(:quiz)]
-    round.quizzes << [quizzes]
-    round.quizzes.should include(quizzes[0])
-    round.quizzes.should include(quizzes[1])
-    expect { round.save! }.not_to raise_error
+  describe "Quiz association" do
+    it_behaves_like "it has a collection" do
+      let(:child_name) { "quiz" }
+    end
+    
+    it_behaves_like "it has multiple parent objects" do
+      let(:parent_name) {"quiz"}  
+    end
   end
   
-  it "belongs to many quizzes" do
-    quiz1 = FactoryGirl.build(:quiz)
-    quiz2 = FactoryGirl.build(:quiz)
-    quiz1.rounds << round
-    quiz2.rounds << round
-    quiz2.rounds.should include(round)
-    quiz2.rounds.should include(round)
-    expect { quiz1.save! }.not_to raise_error
+  describe "Question association" do
+    it_behaves_like "it has a collection" do
+      let(:child_name) { "question" }
+    end
+    
+    it_behaves_like "it has multiple parent objects" do
+      let(:parent_name) {"question"}  
+    end  
   end
   
-  it "has many questions" do
-    questions = [FactoryGirl.build(:question), FactoryGirl.build(:question)]
-    round.questions << [questions]
-    round.questions.should include(questions[0])
-    round.questions.should include(questions[1])
-    expect { round.save! }.not_to raise_error
+  describe "Round_item association" do
+    it_behaves_like "it has a collection" do
+      let(:child_name) { "round_item" }
+    end    
   end
   
-  it "belongs to many questions" do
-    question1 = FactoryGirl.build(:question)
-    question2 = FactoryGirl.build(:question)
-    question1.rounds << round
-    question2.rounds << round
-    question2.rounds.should include(round)
-    question2.rounds.should include(round)  
-    expect { question1.save! }.not_to raise_error
-    expect { question2.save! }.not_to raise_error
-  end
-  
-  it "has many round_items" do
-    round_items = [RoundItem.new, RoundItem.new]
-    round.round_items << round_items
-    round.round_items.should include(round_items[0])
-    round.round_items.should include(round_items[1])
-    expect { round.save! }.not_to raise_error
+  describe "User association" do
+    it_behaves_like "it has a parent object" do
+      let(:parent_name) {"creator"}
+      let(:factory_name) {"user"}
+    end
   end
   
   it "stores rounds as the correct class" do
@@ -61,12 +49,6 @@ describe "Round::Base" do
     quiz.save
     quiz.reload
     quiz.rounds.first.should be_a(Round::Blockbuster)
-  end
-
-  it "belongs to a user" do
-    user = FactoryGirl.create(:user)
-    user.rounds << round
-    round.user.should == user
   end
   
   describe "question types" do

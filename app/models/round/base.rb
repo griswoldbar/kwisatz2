@@ -9,8 +9,8 @@ class Round::Base < KwisatzObject
   has_many :quizzes, :through => :quiz_rounds, :class_name => "Quiz::Base"
   has_many :categories, through: :object_categories
   has_many :object_categories, as: :categorisable
-  belongs_to :user, :foreign_key => :creator_id
-  # validates_presence_of :name
+  belongs_to :creator, :foreign_key => :creator_id, class_name:"User"
+  validates :name, presence:true
   
   self.question_types=[Question::Base] #prob best if these are strings
   

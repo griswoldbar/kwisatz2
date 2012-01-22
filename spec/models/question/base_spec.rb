@@ -2,40 +2,34 @@ require 'spec_helper'
 
 describe Question::Base do
   let(:question) { FactoryGirl.build(:question) }
+  
+  describe "Round association" do
+    it_behaves_like "it has a collection" do
+      let(:child_name) { "round" }
+      let(:factory_name) {"round"}
+    end
+    
+    it_behaves_like "it has multiple parent objects" do
+      let(:parent_name) {"round"}
+    end
+  end  
+  
+  describe "Category association" do
+    it_behaves_like "it has a collection" do
+      let(:child_name) { "category" }
+    end
+  end
+  
+  describe "User association" do
+    it_behaves_like "it has a parent object" do
+      let(:parent_name) {"creator"}
+      let(:factory_name) {"user"}
+    end
+  
+  end
+  
 
-  it "belongs to many rounds" do
-    round1 = FactoryGirl.build(:round)
-    round2 = FactoryGirl.build(:round)
-    round1.questions << question
-    round2.questions << question
-    round1.questions.should include(question)
-    round2.questions.should include(question)
-    expect { round1.save! }.not_to raise_error
-    expect { round2.save! }.not_to raise_error
-  end
-  
-  it "has many rounds" do
-    rounds = [FactoryGirl.build(:round),FactoryGirl.build(:round)]
-    question.rounds << rounds
-    question.rounds.should include(rounds[0])
-    question.rounds.should include(rounds[1])
-    expect { question.save! }.not_to raise_error
-  end
-  
-  
-  it "belongs to a user" do
-    user = FactoryGirl.create(:user)
-    user.questions << question
-    question.user.should == user
-  end
 
-  it "it has many categories" do
-    categories = [FactoryGirl.create(:category), FactoryGirl.build(:category)]
-    question.categories << categories
-    question.categories.should include(categories[0])
-    question.categories.should include(categories[1])
-    expect { question.save! }.not_to raise_error
-  end
 
     
 end

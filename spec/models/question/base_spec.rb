@@ -23,22 +23,19 @@ describe Question::Base do
   end
   
   
-  it "stores data as a serialized hash" do
-    question.data = "blah"
-    expect {
-      question.save
-    }.to raise_error(ActiveRecord::SerializationTypeMismatch)
-    question.data = {:thingy => "blah"}
-    question.should be_valid
-  end
-  
   it "belongs to a user" do
     user = FactoryGirl.create(:user)
     user.questions << question
     question.user.should == user
   end
 
-
+  it "it has many categories" do
+    categories = [FactoryGirl.create(:category), FactoryGirl.build(:category)]
+    question.categories << categories
+    question.categories.should include(categories[0])
+    question.categories.should include(categories[1])
+    expect { question.save! }.not_to raise_error
+  end
 
     
 end

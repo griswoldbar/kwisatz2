@@ -1,6 +1,6 @@
 class KwisatzObject < ActiveRecord::Base
 
-  self.abstract_class = true
+  # self.abstract_class = true
 
   serialize :data, Hash
   attr_protected :data

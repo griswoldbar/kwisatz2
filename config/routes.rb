@@ -1,9 +1,10 @@
 Kwisatz2::Application.routes.draw do
   devise_for :users
 
-  resources :rounds
-  resources :quizzes
-  resources :quiz_rounds
+  resources :rounds, :only => [:show,:create,:index,:update, :destroy]
+  resources :quizzes, :only => [:show,:create,:index,:update, :destroy]
+  resources :quiz_rounds, :only => [:show,:create,:index,:update, :destroy]
+  resources :questions, :only => [:show,:create,:index,:update, :destroy]
 
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'

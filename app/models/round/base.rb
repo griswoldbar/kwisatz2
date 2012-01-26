@@ -1,4 +1,7 @@
 class Round::Base < KwisatzObject
+  include Categorisable
+  include Authorable
+
   set_table_name :rounds
   class_attribute :question_types
   
@@ -7,9 +10,6 @@ class Round::Base < KwisatzObject
   has_many :round_items, :foreign_key => :round_id
   has_many :quiz_rounds, :foreign_key => :round_id
   has_many :quizzes, :through => :quiz_rounds, :class_name => "Quiz::Base"
-  has_many :categories, through: :object_categories
-  has_many :object_categories, as: :categorisable
-  belongs_to :creator, :foreign_key => :creator_id, class_name:"User"
   validates :name, presence:true
   
   self.question_types=[Question::Base] #prob best if these are strings

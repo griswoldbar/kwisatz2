@@ -1,3 +1,3 @@
-class Question::Jeopardy < Question::Basic  
+class Question::Jeopardy < Question::Basic
 
 end

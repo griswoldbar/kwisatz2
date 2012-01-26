@@ -32,7 +32,7 @@ shared_examples "a JSONish controller" do |subject_name|
       it "returns a JSON #{subject_name}" do
         post :create, subject_name.to_sym => @attr, :format => :json
         @attr.each do |attribute, value|
-          response.body.should =~ /#{value}/ unless attribute = "type"
+          response.body.should =~ /#{value}/ unless attribute == :type
         end
       end  
 

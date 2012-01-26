@@ -24,4 +24,3 @@ class CreateCategories < ActiveRecord::Migration
     drop_table :categories
   end
 end
-

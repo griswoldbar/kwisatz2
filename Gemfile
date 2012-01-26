@@ -14,6 +14,7 @@ gem "compass"
 gem "html5-boilerplate"
 gem "mysql2", "0.3.7" # 0.3.x has been dedicated to Rails 3.1
 gem "devise", "1.5.3"
+gem 'inherited_resources'
 
 
 # Gems used only for assets and not required
@@ -41,5 +42,5 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 

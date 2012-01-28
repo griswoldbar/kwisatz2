@@ -15,7 +15,7 @@ gem "html5-boilerplate"
 gem "mysql2", "~> 0.3.7", :git => "git://github.com/brianmario/mysql2.git", :ref => "d3a96b8"
 gem "devise", "1.5.3"
 gem 'inherited_resources'
-
+gem 'rails-backbone'
 
 # Gems used only for assets and not required
 # in production environments by default.

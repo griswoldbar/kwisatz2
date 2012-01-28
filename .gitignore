@@ -2,6 +2,7 @@
 Gemfile
 config/database.yml
 db/*.sqlite3
+Gemfile
 log/*.log
 tmp/
 .sass-cache/

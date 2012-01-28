@@ -3,9 +3,13 @@ FactoryGirl.define do
     type "Question::Base"
   end
   
-  factory :basic_question, :class => "Question::Basic" do
-    type "Question::Basic"
+  factory :question_simple, :class => "Question::Simple" do
+    type "Question::Simple"
     problem "Who shot JFK?"
     solution "Lee Harvey Oswald"
+  end
+  
+  factory :question_multiple_choice, :class => "Question::MultipleChoice" do
+    type "Question::MultipleChoice"
   end
 end

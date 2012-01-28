@@ -33,6 +33,7 @@ group :test do
   gem "factory_girl_rails"
   gem 'jasmine'
   gem 'spork', '~> 0.9.0.rc'
+	gem 'faker'
 end
 
 # Use unicorn as the web server

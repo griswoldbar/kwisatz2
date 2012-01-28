@@ -39,16 +39,16 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
   create_table "questions", :force => true do |t|
     t.text     "data"
     t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "creator_id"
   end
 
   create_table "quiz_items", :force => true do |t|
     t.integer  "quiz_id"
     t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "quiz_items", ["quiz_id"], :name => "index_quiz_items_on_quiz_id"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
   create_table "quiz_rounds", :force => true do |t|
     t.integer  "quiz_id"
     t.integer  "round_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "quiz_rounds", ["quiz_id", "round_id"], :name => "index_quiz_rounds_on_quiz_id_and_round_id"
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
   create_table "quizzes", :force => true do |t|
     t.string   "name"
     t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "creator_id"
     t.string   "type"
   end
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
   create_table "round_items", :force => true do |t|
     t.integer  "round_id"
     t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "round_items", ["round_id"], :name => "index_round_items_on_round_id"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
     t.string   "name"
     t.string   "type"
     t.text     "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "creator_id"
   end
 
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

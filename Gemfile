@@ -1,9 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails'
-
+gem 'execjs'
+gem 'therubyracer'
 # Bundle edge Rails instead:
-# gem 'rails' 
+# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'haml'
@@ -12,10 +13,9 @@ gem "simple_form"
 gem "jquery-rails"
 gem "compass"
 gem "html5-boilerplate"
-gem "mysql2", "~> 0.3.7", :git => "git://github.com/brianmario/mysql2.git", :ref => "d3a96b8"
+gem "mysql2", "~> 0.3.0" # 0.3.x has been dedicated to Rails 3.1
 gem "devise", "1.5.3"
-gem 'inherited_resources'
-gem 'rails-backbone'
+gem "rails-backbone"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,7 +29,6 @@ gem 'jquery-rails'
 
 
 group :test do
-  gem "faker"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'jasmine'

@@ -1,6 +1,7 @@
 .bundle
 db/*.sqlite3
 Gemfile
+Gemfile.lock
 log/*.log
 tmp/
 .sass-cache/

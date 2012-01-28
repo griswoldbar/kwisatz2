@@ -2,7 +2,7 @@ class Quiz::Base < KwisatzObject
   include Categorisable
   include Authorable
   
-  set_table_name :quizzes
+  self.table_name = :quizzes
   
   validates :name, presence:true
   has_many :rounds, :through => :quiz_rounds, :class_name => "Round::Base"

@@ -2,7 +2,7 @@ class Round::Base < KwisatzObject
   include Categorisable
   include Authorable
 
-  set_table_name :rounds
+  self.table_name = :rounds
   class_attribute :question_types
   
   has_many :round_questions, :foreign_key => :round_id

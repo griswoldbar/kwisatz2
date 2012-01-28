@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+# gem 'rails' 
 
 gem 'sqlite3'
 gem 'haml'
@@ -12,7 +12,7 @@ gem "simple_form"
 gem "jquery-rails"
 gem "compass"
 gem "html5-boilerplate"
-gem "mysql2", "0.3.7" # 0.3.x has been dedicated to Rails 3.1
+gem "mysql2", "~> 0.3.7", :git => "git://github.com/brianmario/mysql2.git", :ref => "d3a96b8"
 gem "devise", "1.5.3"
 gem 'inherited_resources'
 
@@ -20,8 +20,8 @@ gem 'inherited_resources'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 
@@ -29,6 +29,7 @@ gem 'jquery-rails'
 
 
 group :test do
+  gem "faker"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'jasmine'
@@ -42,5 +43,5 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 

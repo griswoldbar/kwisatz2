@@ -1,5 +1,5 @@
 class Round::Jeopardy < Round::Base
   include Round::SplitIntoCategories
   
-  self.question_types = self.superclass.question_types + [Question::Jeopardy]
+  self.question_types = [Question::Simple]
 end

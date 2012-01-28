@@ -4,6 +4,10 @@ FactoryGirl.define do
     sequence(:name) { |n| "Round #{n}" }
   end
   
+  factory :round_simple, :parent => :round, :class => "Round::Simple" do
+    type "Round::Simple"
+  end
+  
   factory :round_jeopardy, :parent => :round, :class => "Round::Jeopardy" do
     type "Round::Jeopardy"
     number_of_categories "3"

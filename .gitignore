@@ -1,5 +1,6 @@
 .bundle
 db/*.sqlite3
+Gemfile
 log/*.log
 tmp/
 .sass-cache/

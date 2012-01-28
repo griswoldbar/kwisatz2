@@ -15,7 +15,7 @@ gem "compass"
 gem "html5-boilerplate"
 gem "mysql2", "~> 0.3.0" # 0.3.x has been dedicated to Rails 3.1
 gem "devise", "1.5.3"
-
+gem "rails-backbone"
 
 # Gems used only for assets and not required
 # in production environments by default.

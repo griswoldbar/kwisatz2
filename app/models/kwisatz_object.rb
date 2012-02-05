@@ -8,6 +8,10 @@ class KwisatzObject < ActiveRecord::Base
   # class_attribute :use_custom_data_type, :object_type, :class_type
   # self.use_custom_data_type = false
 
+  def as_json(options={})
+    super(options.merge({:except => :data, :methods => self.data.keys}))
+  end
+  
   def self.serialized_attr_accessor(*args)
     args.each do |method_name|
       eval "

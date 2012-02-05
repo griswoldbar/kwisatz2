@@ -18,4 +18,5 @@ class Round::Base < KwisatzObject
     self.type.split(/::/)[1]
   end
   
+  
 end

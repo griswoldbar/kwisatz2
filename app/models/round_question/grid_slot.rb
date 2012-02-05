@@ -1,3 +1,3 @@
 class RoundQuestion::GridSlot < RoundQuestion::Base
-  include Coordinated
+  include RoundQuestion::Coordinated
 end

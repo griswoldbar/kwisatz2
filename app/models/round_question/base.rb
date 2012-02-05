@@ -7,6 +7,7 @@ class RoundQuestion::Base < KwisatzObject
   
   validate :question_of_right_type
   
+  
   private
   
   def question_of_right_type

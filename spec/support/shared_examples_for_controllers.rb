@@ -43,11 +43,21 @@ shared_examples "a JSONish controller" do |subject_name|
   describe "collection" do
     describe "GET 'index'" do
       let!(:collection) {3.times.map { FactoryGirl.create(subject_name.to_sym) } }
-
-      it "returns all of the #{subject_name.pluralize}" do
-        get :index, :type => described_class_model.to_s
-        assigns(subject_name.pluralize.to_sym).should == collection 
+      
+      context "when a type is specified" do
+        it "returns all of the #{subject_name.pluralize}" do
+          get :index, :type => described_class_model.to_s
+          assigns(subject_name.pluralize.to_sym).should == collection 
+        end
       end
+    
+      context "when no type is specified" do
+        it "returns all of the #{subject_name.pluralize}" do
+          get :index
+          assigns(subject_name.pluralize.to_sym).should == collection 
+        end
+      end
+    
 
     end    
   end

@@ -5,7 +5,7 @@ class Round::Base < KwisatzObject
   self.table_name = :rounds
   class_attribute :question_types
   
-  has_many :round_questions, :foreign_key => :round_id
+  has_many :round_questions, :foreign_key => :round_id, :class_name => "RoundQuestion::Base"
   has_many :questions, :through => :round_questions, :class_name => "Question::Base"
   has_many :round_items, :foreign_key => :round_id
   has_many :quiz_rounds, :foreign_key => :round_id

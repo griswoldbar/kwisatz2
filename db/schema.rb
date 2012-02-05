@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120115172325) do
+ActiveRecord::Schema.define(:version => 20120204094715) do
 
   create_table "categories", :force => true do |t|
     t.string  "name"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20120115172325) do
   create_table "round_questions", :force => true do |t|
     t.integer "round_id"
     t.integer "question_id"
+    t.string  "type"
+    t.text    "data"
   end
 
   add_index "round_questions", ["question_id"], :name => "index_round_questions_on_question_id"

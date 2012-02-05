@@ -52,8 +52,8 @@ describe Round::Base do
   end
   
   describe "question types" do
+    
     before(:all) do
-
       class Question::SuitableQuestion < Question::Base; end
       class Question::OtherSuitableQuestion < Question::Base; end
       class Question::UnsuitableQuestion < Question::Base;end
@@ -77,6 +77,14 @@ describe Round::Base do
       expect {
         fakeround.save!
       }.not_to raise_error      
+    end
+    
+    it "accepts empty round questions" do
+      fakeround = Round::FakeRound.new(FactoryGirl.attributes_for(:round))
+      fakeround.round_questions << RoundQuestion::Base.new(FactoryGirl.attributes_for(:round_question))
+      expect {
+        fakeround.save!
+      }.not_to raise_error    
     end
 
   end

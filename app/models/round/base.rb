@@ -18,5 +18,11 @@ class Round::Base < KwisatzObject
     self.type.split(/::/)[1]
   end
   
+  def with_children
+    self.as_json(:include => 
+                  {:round_questions => 
+                    {:include => :question}
+                  })
+  end
   
 end

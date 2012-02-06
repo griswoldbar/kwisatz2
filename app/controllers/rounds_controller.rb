@@ -3,16 +3,13 @@ class RoundsController < ApplicationController
   
   def show
     @round = Round::Base.find(params[:id])
-    render :json => @round.as_json(:include => 
-    {:round_questions => 
-      {:include => :question}
-    })
+    render :json => @round.with_children
   end
 
   def create
     @round = object_type.new(params[:round].merge({creator:current_user}))
     if @round.save
-      render :json => @round
+      render :json => @round.with_children
     end
   end
   

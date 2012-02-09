@@ -10,9 +10,9 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require initialize
 //= require backbone/kwisatz2
 //= require_tree .
+//= require main
 // Provide top-level namespaces for our javascript.
 (function() {
   var app = new kwisatz.routers.AppRouter();

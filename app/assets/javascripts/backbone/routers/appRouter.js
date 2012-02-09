@@ -1,6 +1,6 @@
 kwisatz.routers.AppRouter = Backbone.Router.extend({
     routes: {
-        ""          : "list",
+        ""         : "list",
         "quiz/:id" : "quizDetails"
     },
  

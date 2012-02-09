@@ -57,7 +57,7 @@ shared_examples "a JSONish controller" do |subject_name|
           assigns(subject_name.pluralize.to_sym).should == collection 
         end
       end
-    
+          
 
     end    
   end

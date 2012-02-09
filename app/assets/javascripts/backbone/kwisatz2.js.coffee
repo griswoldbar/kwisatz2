@@ -4,8 +4,8 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Kwisatz2 =
-  Models: {}
-  Collections: {}
-  Routers: {}
-  Views: {}
+window.kwisatz = {};
+kwisatz.routers = {};
+kwisatz.models = {};
+kwisatz.views = {};
+  

@@ -3,7 +3,7 @@ class RoundsController < ApplicationController
   
   def show
     @round = Round::Base.find(params[:id])
-    render :json => @round.with_children
+    respond_with(@round.with_children)
   end
 
   def create
@@ -14,8 +14,7 @@ class RoundsController < ApplicationController
   end
   
   def index
-    @rounds = object_type.all
-    render :json => @rounds
+    respond_with(@rounds = object_type.all)
   end
   
 end

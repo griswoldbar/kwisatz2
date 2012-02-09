@@ -2,20 +2,18 @@ class QuestionsController < ApplicationController
   respond_to :json
   
   def show
-    @question = Question::Base.find(params[:id])
-    render :json => {question:@question}
+    respond_with(@question = Question::Base.find(params[:id]))
   end
 
   def create
     @question = object_type.new(params[:question].merge({creator:current_user}))
     if @question.save
-      render :json => {question:@question}
+      render :json => @question
     end
   end
   
   def index
-    @questions = object_type.all
-    render :json => {questions:@questions}
+    respond_with(@questions = object_type.all)
   end
   
 end

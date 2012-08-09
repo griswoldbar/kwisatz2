@@ -1,0 +1,5 @@
+- content_for :content do
+  =render 'quizzes/menu'
+  #quiz
+    = content_for?(:quiz_content) ? yield(:quiz_content) : yield
+= render :template => 'layouts/application'

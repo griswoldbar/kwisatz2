@@ -3,7 +3,7 @@ class Round::Base < KwisatzObject
   include Authorable
 
   self.table_name = :rounds
-  class_attribute :question_types
+  class_attribute :question_types #TODO should have whitelist filter
   
   has_many :round_questions, :foreign_key => :round_id, :class_name => "RoundQuestion::Base"
   has_many :questions, :through => :round_questions, :class_name => "Question::Base"

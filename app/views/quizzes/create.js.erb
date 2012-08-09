@@ -1,0 +1,4 @@
+$('#quiz').html('<%=j(render 'quizzes/details', quiz: @quiz )%>');
+$('body').append('<%=j(render 'quiz_rounds/list', quiz: @quiz )%>');
+$('body').append('<%=j(render 'rounds/list', quiz: @quiz )%>');
+

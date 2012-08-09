@@ -1,0 +1,2 @@
+$('#new_round').html('<%=j(render 'rounds/form', round: Round::Base.new )%>');
+$('#rounds').append('<%=j(render 'rounds/round', round: @round )%>')

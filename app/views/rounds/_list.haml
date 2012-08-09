@@ -1,0 +1,8 @@
+#rounds
+  = render partial: 'rounds/round', collection: quiz.possible_rounds, as: :round
+
+:javascript
+  $('.round').each(function(index, element) {
+    element.addEventListener('dragstart', handleDragStart, false);
+    element.addEventListener('dragend', handleDragEnd, false);
+  });

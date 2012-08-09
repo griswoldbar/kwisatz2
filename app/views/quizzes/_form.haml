@@ -1,0 +1,5 @@
+=simple_form_for quiz, as: :quiz, url: quizzes_path, remote: true do |f|
+  =f.input :name
+  =f.input :type, collection: Quiz::Base.quiz_types
+  =f.input :round_count, collection: 1..20
+  =f.button :submit, submit_title

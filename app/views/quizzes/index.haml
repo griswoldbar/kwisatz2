@@ -1,0 +1,9 @@
+%table#quizzes
+  %thead
+    %tr.heading_row
+      %th Name
+      %th Creation date
+  %tbody
+    = render :partial => 'quiz', :collection => @quizzes, :as => :quiz
+
+=link_to "Create new quiz", new_quiz_path

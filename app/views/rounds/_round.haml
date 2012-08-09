@@ -1,0 +1,5 @@
+.round{id: "round-#{round.id}", draggable: 'true', :class => "square" }
+  %span=link_to(round.name, edit_round_path(round))
+  %span=round.type
+  %span=round.created_at
+  

@@ -1,0 +1,1 @@
+$(".quiz_round[relation='round-<%= @round.id %>'], #round-<%= @round.id %>").find(".round_data").html('<%= j(render 'rounds/round_data', round: @round)%>')

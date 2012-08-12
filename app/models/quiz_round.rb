@@ -1,5 +1,5 @@
 class QuizRound < KwisatzObject
-  include QuizRound::Ordered
+  include Ordered
   
   belongs_to :round, :class_name => "Round::Base"
   belongs_to :quiz, :class_name => "Quiz::Base"

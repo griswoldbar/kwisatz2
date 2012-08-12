@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810112443) do
+ActiveRecord::Schema.define(:version => 20120812170141) do
 
   create_table "categories", :force => true do |t|
     t.string  "name"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(:version => 20120810112443) do
     t.integer "categorisable_id"
     t.string  "categorisable_type"
     t.integer "category_id"
+    t.boolean "primary"
   end
 
   add_index "object_categories", ["categorisable_id", "categorisable_type"], :name => "index_object_categories_on_categorisable_name_and_type"
   add_index "object_categories", ["category_id"], :name => "index_object_categories_on_category_id"
+  add_index "object_categories", ["primary", "categorisable_id", "categorisable_type"], :name => "index_on_primary_and_categorisable"
 
   create_table "players", :force => true do |t|
     t.string  "name"

@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+cclass Category < ActiveRecord::Base
   has_many :object_categories
   has_many :quizzes,   through: :object_categories, source: :categorisable, source_type: 'Quiz::Base'
   has_many :rounds,    through: :object_categories, source: :categorisable, source_type: 'Round::Base'

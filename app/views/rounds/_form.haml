@@ -1,5 +1,4 @@
-=simple_form_for round, as: :round, url: rounds_path, remote: true do |f|
+=simple_form_for round, as: :round, url: url, remote: true do |f|
   =f.input :name
-  =hidden_field_tag 'quiz[id]', @quiz.id
-  =f.input :type, collection: @quiz.round_types
-  =f.button :submit, "Create Round"
+  =f.input :type, collection: Quiz::Base.round_types
+  =f.button :submit, submit_title

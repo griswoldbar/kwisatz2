@@ -8,8 +8,14 @@ class Quiz::Base < KwisatzObject
   
   self.table_name = :quizzes
   self.quiz_types = [
-                      ['Simple',Quiz::Simple]
-                    ]
+      ['Simple',Quiz::Simple]
+    ]
+  
+  self.round_types = [
+      ['Simple', Round::Simple],
+      ['Blockbusters', Round::Blockbuster],
+      ['Jeopardy', Round::Jeopardy]
+    ]
   
   validates :name, presence:true
   has_many :rounds, :through => :quiz_rounds, :class_name => "Round::Base"

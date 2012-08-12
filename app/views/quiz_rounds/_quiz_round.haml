@@ -1,2 +1,6 @@
-.quiz_round{id: "quiz_round-#{quiz_round.id}", :class => "square"}
-  Drag round here
+.quiz_round{id: "quiz_round-#{quiz_round.id}", :class => "square", relation: "round-#{(quiz_round.round ? quiz_round.round.id : 0)}" }
+  .round_data
+    -if quiz_round.round.present?
+      = render "rounds/round_data", round: quiz_round.round
+    -else
+      Drag round here

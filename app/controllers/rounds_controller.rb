@@ -16,7 +16,14 @@ class RoundsController < ApplicationController
   end
   
   def edit
+    @round = Round::Base.find(params[:id])
+    render 'edit', layout: false
+  end
   
+  def update
+    @round = Round::Base.find(params[:id])
+    @round.update_attributes(params[:round])
+    render 'update', layout: false
   end
   
   def index

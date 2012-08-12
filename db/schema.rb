@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120204094715) do
+ActiveRecord::Schema.define(:version => 20120810112443) do
 
   create_table "categories", :force => true do |t|
     t.string  "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120204094715) do
     t.integer  "round_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "data"
   end
 
   add_index "quiz_rounds", ["quiz_id", "round_id"], :name => "index_quiz_rounds_on_quiz_id_and_round_id"

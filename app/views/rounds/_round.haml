@@ -1,4 +1,9 @@
 .round{id: "round-#{round.id}", draggable: 'true', :class => "square" }
   .round_data
     =render 'rounds/round_data', round: round
-  
+    
+:javascript
+  $('.round').each(function(index, element) {
+    element.addEventListener('dragstart', handleDragStart, false);
+    element.addEventListener('dragend', handleDragEnd, false);
+  });

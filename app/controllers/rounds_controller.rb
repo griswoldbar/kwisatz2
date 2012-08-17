@@ -1,5 +1,5 @@
 class RoundsController < ApplicationController
-  layout "quizzes"
+  # layout "quizzes"
   respond_to :js, :html
     
   def show
@@ -7,10 +7,13 @@ class RoundsController < ApplicationController
     respond_with(@round.with_children)
   end
 
+  def new
+    @round = Round::Base.new
+    respond_with(@round)
+  end
+  
   def create
-    @quiz = Quiz::Base.find(params[:quiz][:id])
     @round = object_type.new(params[:round].merge({creator:(current_user || nil)}))
-    @round.quizzes << @quiz
     @round.save
     render 'create', layout: false
   end

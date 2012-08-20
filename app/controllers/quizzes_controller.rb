@@ -10,6 +10,7 @@ class QuizzesController < ApplicationController
   
   def new
     @quiz = Quiz::Base.new
+    render 'new', layout: false
   end
 
   def create

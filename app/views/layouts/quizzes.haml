@@ -1,6 +1,18 @@
 - content_for :content do
-  =render 'quizzes/menu'
-  #quiz
-    = content_for?(:quiz_content) ? yield(:quiz_content) : yield
-  #round
+  =render 'layouts/quizzes/header'
+  .container-fluid
+    .row-fluid
+      .span3
+        .well.sidebar-nav
+          .nav.nav-list
+            = yield(:sidebar)
+      .span6
+        #quiz
+          = content_for?(:quiz_content) ? yield(:quiz_content) : yield
+          #quiz-info
+          #quiz-rounds
+          #quiz-button
+        #round
+    %hr
+    =render 'layouts/quizzes/footer'
 = render :template => 'layouts/application'

@@ -3,13 +3,13 @@
 <head>
   <title>Kwisatz2</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 
+  <%= javascript_include_tag "application" %>
 
 </body>
 </html>

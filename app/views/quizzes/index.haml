@@ -1,9 +1,5 @@
-%table#quizzes
-  %thead
-    %tr.heading_row
-      %th Name
-      %th Creation date
-  %tbody
+- content_for :sidebar do
+  %li.nav-header 
+    Quizzes
     = render :partial => 'quiz', :collection => @quizzes, :as => :quiz
-
-=link_to "Create new quiz", new_quiz_path
+  =link_to "Create new quiz", new_quiz_path

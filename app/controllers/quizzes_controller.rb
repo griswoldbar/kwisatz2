@@ -4,7 +4,8 @@ class QuizzesController < ApplicationController
   # layout "quizzes"
   
   def show
-    respond_with(@quiz = Quiz::Base.find(params[:id]))
+    @quiz = Quiz::Base.find(params[:id])
+    render 'show', layout: false
   end
   
   def new
@@ -23,7 +24,8 @@ class QuizzesController < ApplicationController
   end
   
   def edit
-    respond_with(@quiz = Quiz::Base.find(params[:id]))
+    @quiz = Quiz::Base.find(params[:id])
+    render 'edit', layout: false
   end
   
 end

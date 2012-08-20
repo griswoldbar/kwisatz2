@@ -1,4 +1,4 @@
-%tr
-  %td=link_to(quiz.name, quiz_path(quiz))
-  %td=quiz.type
-  %td=quiz.created_at
+%li
+  %span
+    =link_to(quiz.name, quiz_path(quiz), remote: true)
+    ="(#{type_name(quiz)})"

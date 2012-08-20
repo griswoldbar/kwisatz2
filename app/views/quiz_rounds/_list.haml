@@ -1,6 +1,6 @@
-#quiz_rounds
-  = render partial: 'quiz_rounds/quiz_round', collection: quiz.quiz_rounds, as: :quiz_round
-  
+= render partial: 'quiz_rounds/quiz_round', collection: quiz.quiz_rounds, as: :quiz_round
+
+-#   move these to edit
 :javascript
   $('.quiz_round').each(function(index, element) {
     element.addEventListener('drop', handleDrop, false);

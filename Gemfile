@@ -11,7 +11,8 @@ gem 'haml'
 gem "haml-rails"
 gem "simple_form"
 gem "jquery-rails"
-gem "compass"
+gem 'bootstrap-sass'
+gem "twitter-bootstrap-rails"
 gem "html5-boilerplate"
 gem "mysql2", "~> 0.3.0" # 0.3.x has been dedicated to Rails 3.1
 gem "devise", "1.5.3"

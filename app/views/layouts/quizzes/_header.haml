@@ -1,0 +1,26 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      -# %a.btn.btn-navbar{:"data-toggle" => "collapse", :"data-target" => ".nav-collapse"}
+      -#   %span.icon-bar
+      -#   %span.icon-bar
+      -#   %span.icon-bar
+      -#   %span.icon-bar        
+      =link_to 'Kwisatz', '#', :class => "brand"
+      .btn-group.pull-right
+        %a.btn.dropdown-toggle{:"data-toggle" => "dropdown", :href => "#"}
+          %i.icon-user 
+          Username
+          %span.caret
+        %ul.dropdown-menu
+          %li=link_to "Profile", "#"
+          %li.divider
+          %li=link_to "Sign Out", "#"
+      .nav-collapse
+        %ul.nav
+          %li=link_to "Home", "#"
+          %li=link_to "About", "#"
+          %li=link_to "Contact", "#"
+          %li=link_to "Quizzes", quizzes_path
+
+          

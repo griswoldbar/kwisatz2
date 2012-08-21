@@ -1,0 +1,2 @@
+<%= render file: 'quizzes/show'%>
+$('#quiz-list #quiz-<%= @quiz.id%>').html('<%=j(render 'quizzes/quiz', quiz: @quiz )%>');

@@ -16,7 +16,7 @@ class QuizzesController < ApplicationController
   def create
     @quiz = object_type.new(params[:quiz].merge({creator:(current_user || nil)}))
     @quiz.save
-    @quiz.round_count.times { |n| @quiz.quiz_rounds.create(position: n+1) }
+    # @quiz.round_count.times { |n| @quiz.quiz_rounds.create(position: n+1) }
     render 'create', layout: false
   end
   

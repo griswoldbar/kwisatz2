@@ -1,4 +1,4 @@
 %li
-  %span
+  %div{id: "quiz-#{quiz.id}"}
     =link_to(quiz.name, quiz_path(quiz), remote: true)
     ="(#{type_name(quiz)})"

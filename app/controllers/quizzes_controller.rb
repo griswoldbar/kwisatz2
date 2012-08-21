@@ -29,4 +29,11 @@ class QuizzesController < ApplicationController
     render 'edit', layout: false
   end
   
+  def update
+    @quiz = Quiz::Base.find(params[:id])
+    @quiz.update_attributes(params[:quiz])
+    @quiz.save
+    render 'update', layout: false
+  end
+  
 end

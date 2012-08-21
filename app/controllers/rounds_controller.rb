@@ -30,7 +30,9 @@ class RoundsController < ApplicationController
   end
   
   def index
-    respond_with(@rounds = object_type.all)
+    @quiz = Quiz::Base.find(params[:quiz])
+    @rounds = object_type.all
+    render partial: 'list', layout: false, quiz: @quiz
   end
   
 end

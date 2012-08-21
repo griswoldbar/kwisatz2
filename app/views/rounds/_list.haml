@@ -1,3 +1,6 @@
-#rounds
-  = render partial: 'rounds/round', collection: quiz.possible_rounds, as: :round
+.well.sidebar-nav
+  .nav.nav-list
+    %li.nav-header 
+      Rounds
+      = render partial: 'rounds/round', collection: quiz.possible_rounds, as: :round
 

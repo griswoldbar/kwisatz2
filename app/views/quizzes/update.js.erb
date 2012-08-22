@@ -1,4 +1,2 @@
-$('#quiz-info').html('<%=j(render 'quizzes/details', quiz: @quiz)%>');
-$('#quiz-rounds').html('<%=j(render 'quiz_rounds/list', quiz: @quiz)%>');
-$('#quiz-button').html('<%=j(button_to 'Edit', edit_quiz_path(@quiz), remote: true, method: :get)%>');
-$('#quiz-list #quiz-<%= @quiz.id %>').html('<%=j(render 'quizzes/quiz', quiz: @quiz )%>');
+<%= render file: 'quizzes/show'%>
+$('#quiz-list #quiz-<%= @quiz.id%>').html('<%=j(render 'quizzes/quiz', quiz: @quiz )%>');

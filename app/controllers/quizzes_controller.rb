@@ -20,7 +20,9 @@ class QuizzesController < ApplicationController
   end
   
   def index
-    respond_with(@quizzes = object_type.all)
+    @categories = Category.all
+    @quizzes = object_type.all
+    render 'index'
   end
   
   def edit

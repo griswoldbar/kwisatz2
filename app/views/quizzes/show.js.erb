@@ -1,3 +1,4 @@
 $('#quiz-info').html('<%=j(render 'quizzes/details', quiz: @quiz)%>');
 $('#quiz-rounds').html('<%=j(render 'quiz_rounds/list', quiz: @quiz)%>');
+$('#quiz_categories').html('<%=j(render 'object_categories/list', object: @quiz)%>');
 $('#quiz-button').html('<%=j(button_to 'Edit', edit_quiz_path(@quiz), remote: true, method: :get)%>');

@@ -1,0 +1,8 @@
+%li.span2
+  .thumbnail.round.draggable{id: "category-#{category.id}" }
+    = render 'categories/details', category: category
+:javascript
+  $( ".draggable" ).draggable({ 
+    revert: "invalid",
+    helper: "clone"
+  });

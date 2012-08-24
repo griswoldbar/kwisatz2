@@ -2,6 +2,10 @@
   =render 'layouts/quizzes/header'
   .container-fluid
     .row-fluid
+      .span12
+        #categories
+          = yield(:categories)
+    .row-fluid
       .span3
         .well.sidebar-nav
           .nav.nav-list
@@ -10,8 +14,8 @@
         #quiz.row-fluid
           = content_for?(:quiz_content) ? yield(:quiz_content) : yield
           #quiz-info
+          #quiz_categories
           #quiz-rounds
-          #quiz-categories
           #quiz-button
       .span3#rounds
     %hr

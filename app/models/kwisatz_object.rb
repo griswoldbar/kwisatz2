@@ -25,6 +25,10 @@ class KwisatzObject < ActiveRecord::Base
       "
     end
   end
+  
+  def object_type
+    self.class.to_s.gsub(/::.*/,"").downcase
+  end
 
   
 end

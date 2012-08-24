@@ -9,6 +9,9 @@ body { padding-top: 60px; }
   user-select: none;
 }
 
+.draggable {
+	cursor: move;
+}
 .square {
 	height: 150px;
   width: 150px;

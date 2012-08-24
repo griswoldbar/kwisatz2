@@ -4,6 +4,12 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     
+    # category_names = ["Music", "Movies", "Geography", "History", "Literature", "General Knowledge"]
+    # 
+    # category_names.each do |name|
+    #   Category.create!(name: name)
+    # end
+    
     100.times do 
       qu=Question::Simple.create!(:problem => Faker::Company.bs, :solution => Faker::Company.catch_phrase)
       qu.categories << Category.all.sample(rand(3)+1)

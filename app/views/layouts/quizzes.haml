@@ -17,3 +17,7 @@
     %hr
     =render 'layouts/quizzes/footer'
 = render :template => 'layouts/application'
+
+:javascript
+  $( "#quiz-rounds" ).sortable();
+  $( "#quiz-rounds" ).disableSelection();

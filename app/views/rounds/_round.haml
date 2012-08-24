@@ -2,6 +2,12 @@
   .round.draggable{id: "round-#{round.id}" }
     .round_data
       =render 'rounds/round_data', round: round
+      
+:javascript
+  $( ".draggable" ).draggable({ 
+    revert: "invalid",
+    helper: "clone"
+  });
 
 -# :javascript
 -#   $('.round').each(function(index, element) {

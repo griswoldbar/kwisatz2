@@ -14,30 +14,21 @@
 //   $(this).css({ opacity: 1.0 });  // this / e.target is the source node.
 // }
 // 
-// function handleDrop(e) {
-//   
-//   if (e.stopPropagation) {
-//     e.stopPropagation(); // Stops some browsers from redirecting.
-//   }
-// 
-//   e.preventDefault();
-// 
-//   // Don't do anything if dropping the same column we're dragging.
-//   if (dragSrcEl != this) {
-// 	
-// 	  var source = e.dataTransfer.getData('id');
-//     var target = this.id;
-// 		var targetField = "."+source.split("-")[0]+"_data";
-// 		
-// 		
-//     // Set the source column's HTML to the HTML of the column we dropped on.
-//     $(this).find(targetField).html(e.dataTransfer.getData('text'));
-//     this.classList.remove('over');
-//     $(this).attr('relation', source) //put id of source into target so
-//     
-// 		addToCollection(source,target);
-// 
-//   }
+
+function handleDrop(target, source) {
+  
+	sourceId = source.attr('id');
+	targetId = target.attr('id');
+
+	 // Set the source column's HTML to the HTML of the column we dropped on.
+	target.html(source.html());
+	// target.classList.remove('over');
+	target.attr('relation', sourceId) //put id of source into target so
+   
+	addToCollection(sourceId,targetId);
+
+}
+
 // 
 //   return false;
 // }

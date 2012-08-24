@@ -1,4 +1,4 @@
-.quiz_round.draggable{id: "quiz_round-#{quiz_round.id}", :class => "square", relation: "round-#{(quiz_round.round ? quiz_round.round.id : 0)}" }
+.quiz_round{id: "quiz_round-#{quiz_round.id}", :class => "square", relation: "round-#{(quiz_round.round ? quiz_round.round.id : 0)}" }
   .round_data
     -if quiz_round.round.present?
       = render "rounds/round_data", round: quiz_round.round
@@ -6,4 +6,11 @@
       Drag round here
 
 :javascript
-  $( ".draggable" ).draggable({ revert: "invalid" });
+  $(".quiz_round").droppable({
+    accept: ".round",
+    activeClass: "ui-state-hover",
+    hoverClass: "ui-state-active",
+    drop: function(event,ui) { 
+      handleDrop( $(this), ui.draggable ) 
+    }
+  })

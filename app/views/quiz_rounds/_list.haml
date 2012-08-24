@@ -1,13 +1,22 @@
-.well
+.well#quiz_rounds-container
   %h2 Rounds
-  %ul.thumbnails#quiz-rounds-area
+  %ul.thumbnails#quiz_rounds-area
     = render partial: 'quiz_rounds/quiz_round', collection: quiz.quiz_rounds, as: :quiz_round
 
 :javascript
-  $( "#quiz-rounds-area" ).sortable({
+  $( "#quiz_rounds-area" ).sortable({
     handle: $('.sorty'),
-    out: function(event,ui) {
-      handleOut(ui.item);
+    
+    over: function () {
+      removeIntent = false;
+    },
+    out: function () {
+      removeIntent = true;
+    },
+    beforeStop: function (event, ui) {
+      if(removeIntent == true){
+        handleOut(ui.item);
+      }
     }
   });
-  $( "#quiz-rounds-area" ).disableSelection();
+  $( "#quiz_rounds-area" ).disableSelection();

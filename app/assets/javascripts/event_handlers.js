@@ -33,7 +33,6 @@ function handleDrop(target, source) {
 function handleOut(element) {
 	
 	id = element.attr('id');
-	element.remove();
 	removeFromCollection(id);
 
 }

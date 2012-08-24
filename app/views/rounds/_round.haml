@@ -1,8 +1,8 @@
-%li
-  .round.draggable{id: "round-#{round.id}" }
+%li.span9
+  .thumbnail.round.draggable{id: "round-#{round.id}" }
     .round_data
       =render 'rounds/round_data', round: round
-      
+    
 :javascript
   $( ".draggable" ).draggable({ 
     revert: "invalid",

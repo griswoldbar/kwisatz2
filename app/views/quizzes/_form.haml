@@ -1,4 +1,4 @@
-=simple_form_for quiz, as: :quiz, url: url, remote: true do |f|
+=simple_form_for quiz, as: :quiz, url: url, html: {:class => "form-inline"}, remote: true do |f|
   =f.input :name
   =f.input :type, collection: quiz_types
   =f.input :round_count, collection: 1..20

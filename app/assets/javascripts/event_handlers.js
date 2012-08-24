@@ -21,7 +21,7 @@ function handleDrop(target, source) {
 	targetId = target.attr('id');
 
 	 // Set the source column's HTML to the HTML of the column we dropped on.
-	target.html(source.html());
+	target.find('.data').html(source.html());
 	// target.classList.remove('over');
 	target.attr('relation', sourceId) //put id of source into target so
    
@@ -29,7 +29,15 @@ function handleDrop(target, source) {
 
 }
 
-// 
+
+function handleOut(element) {
+	
+	id = element.attr('id');
+	element.remove();
+	removeFromCollection(id);
+
+}
+ 
 //   return false;
 // }
 // 

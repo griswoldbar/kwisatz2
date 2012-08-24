@@ -1,5 +1,6 @@
-.quiz_round{id: "quiz_round-#{quiz_round.id}", :class => "square", relation: "round-#{(quiz_round.round ? quiz_round.round.id : 0)}" }
-  .round_data
+%li.span3.thumbnail.quiz_round{id: "quiz_round-#{quiz_round.id}", relation: "round-#{(quiz_round.round ? quiz_round.round.id : 0)}" }
+  %div.sorty Drag me
+  .data
     -if quiz_round.round.present?
       = render "rounds/round_data", round: quiz_round.round
     -else

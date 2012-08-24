@@ -10,4 +10,10 @@ class QuizRoundsController < ApplicationController
     render nothing: true
   end
   
+  def destroy
+    @quiz_round = QuizRound.find(params[:id])
+    @quiz_round.destroy
+    render 'destroy', layout: false
+  end
+  
 end

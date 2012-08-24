@@ -1,6 +1,5 @@
 =simple_form_for quiz, as: :quiz, url: url, remote: true do |f|
   =f.input :name
-  =f.input :type, collection: Quiz::Base.quiz_types
+  =f.input :type, collection: quiz_types
   =f.input :round_count, collection: 1..20
   =f.button :submit, submit_title
-=link_to 'Create New Round', new_round_path, remote:true

@@ -10,7 +10,9 @@
         #quiz
           = content_for?(:quiz_content) ? yield(:quiz_content) : yield
           #quiz-info
-          #quiz-rounds
+          .row-fluid
+            #quiz-rounds
+          #quiz-categories
           #quiz-button
       .span3
         #rounds

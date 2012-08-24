@@ -8,7 +8,7 @@ namespace :db do
       qu=Question::Simple.create!(:problem => Faker::Company.bs, :solution => Faker::Company.catch_phrase)
       qu.categories << Category.all.sample(rand(3)+1)
     end
-    
+  
     15.times do
       r=Round::Jeopardy.create!(:name => Faker::Internet.domain_word,
                                 :number_of_categories => (rand(4)+3),
@@ -17,7 +17,11 @@ namespace :db do
       r.save!
     end
     
-    questions = Question::Simple.all
+    questions = Question::Base.all
+    questions.each { |question| p question }
+    
+    round_questions = RoundQuestion::GridSlot.all
+    
     RoundQuestion::GridSlot.all.each do |rq|
       rq.question = questions.sample
       rq.save!
@@ -29,6 +33,7 @@ namespace :db do
       q.categories << Category.all.sample(rand(3)+1)
       q.save!
     end
+    
   end
   
 end

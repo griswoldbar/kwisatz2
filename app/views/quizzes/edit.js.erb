@@ -1,3 +1,11 @@
 $('#quiz-info').html('<%=j(render 'quizzes/form', quiz: @quiz, url: quiz_path(@quiz), submit_title: "Update")%>');
 $('#quiz-button').html('');
 $('#rounds').html('<%=j(render 'rounds/list', quiz: @quiz)%>');
+$(".quiz_round").droppable({
+  accept: ".round",
+  activeClass: "ui-state-hover",
+  hoverClass: "ui-state-active",
+  drop: function(event,ui) { 
+    handleDrop( $(this), ui.draggable ) 
+  }
+})

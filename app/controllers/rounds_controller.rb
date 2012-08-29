@@ -2,10 +2,6 @@ class RoundsController < ApplicationController
   # layout "quizzes"
   respond_to :js, :html
     
-  def show
-    @round = Round::Base.find(params[:id])
-    respond_with(@round.with_children)
-  end
 
   def new
     @round = Round::Base.new
@@ -33,6 +29,11 @@ class RoundsController < ApplicationController
     @quiz = Quiz::Base.find(params[:quiz])
     @rounds = object_type.all
     render partial: 'list', layout: false, quiz: @quiz
+  end
+  
+  def show
+    @round = Round::Base.find(params[:id])
+    render 'show', layout: false
   end
   
 end

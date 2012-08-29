@@ -1,0 +1,4 @@
+$('#question-info').html('<%=j(render 'questions/details', question: @question)%>');
+$('#question-button').html('<%=j(button_to 'Edit', edit_question_path(@question), remote: true, method: :get)%>');
+$('#question_categories').html('<%=j(render 'object_categories/list', object: @question) %>')
+$('#question-link').click();

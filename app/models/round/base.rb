@@ -25,4 +25,8 @@ class Round::Base < KwisatzObject
                   })
   end
   
+  def possible_questions
+    Question::Base.all
+  end
+  
 end

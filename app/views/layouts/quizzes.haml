@@ -4,20 +4,51 @@
     .row-fluid
       .span12
         #categories
-          = yield(:categories)
+          = render partial: 'categories/list'
     .row-fluid
       .span3
         .well.sidebar-nav
-          .nav.nav-list
-            = yield(:sidebar)
-      .span6
-        #quiz.row-fluid
-          = content_for?(:quiz_content) ? yield(:quiz_content) : yield
-          #quiz-info
-          #quiz_categories
-          #quiz_rounds
-          #quiz-button
-      .span3#rounds
+          .tabbable
+            %ul.nav.nav-tabs
+              %li.active=link_to('Quizzes', '#quiz-index', "data-toggle" => 'tab', id: 'quizzes-link')
+              %li=link_to('Rounds', '#round-index', "data-toggle" => 'tab', id: 'rounds-link')
+              %li=link_to('Questions', '#question-index', "data-toggle" => 'tab', id: 'questions-link')
+            .tab-content
+              .tab-pane.active#quiz-index
+                #quiz-list
+                  %li.nav-header 
+                    Quizzes
+                    = render :partial => 'quiz', :collection => @quizzes, :as => :quiz
+                =link_to "Create new quiz", new_quiz_path, remote: true
+              .tab-pane#round-index
+                #rounds
+              .tab-pane#question-index
+                #questions
+      .span9#editor
+        .tabbable
+          %ul.nav.nav-tabs
+            %li.active=link_to('Quiz', '#quiz-editor', "data-toggle" => 'tab', id: 'quiz-link')
+            %li=link_to('Round', '#round-editor', "data-toggle" => 'tab', id: 'round-link')
+            %li=link_to('Question', '#question-editor', "data-toggle" => 'tab', id: 'question-link')
+          .tab-content
+            .tab-pane.active#quiz-editor
+              #quiz.row-fluid
+                = content_for?(:quiz_content) ? yield(:quiz_content) : yield
+                #quiz-info
+                #quiz_categories
+                #quiz_rounds
+                #quiz-button
+            .tab-pane#round-editor
+              #round.row-fluid
+                #round-info
+                #round_categories
+                #round_questions
+                #round-button
+            .tab-pane#question-editor
+              #question.row-fluid
+                #question-info
+                #question_categories
+                #question-button          
     %hr
     =render 'layouts/quizzes/footer'
 = render :template => 'layouts/application'

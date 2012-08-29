@@ -1,0 +1,10 @@
+%li.span9
+  .thumbnail.question{id: "question-#{question.id}" }
+    .question_data
+      =render 'questions/question_data', question: question
+    
+:javascript
+  $( ".question" ).draggable({ 
+    revert: "invalid",
+    helper: "clone"
+  });

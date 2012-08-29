@@ -1,0 +1,5 @@
+$('#question').html('<%=j(render 'questions/form', question: @question, submit_title: "Update Question", url: question_path(@question))%>');
+$('#question-button').html('');
+$('#question-<%= @question.id %>-categories').append('<%= j(render 'object_categories/new', object: @question) %>')
+
+$('#question-link').click();

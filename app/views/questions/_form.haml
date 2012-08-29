@@ -1,0 +1,4 @@
+=simple_form_for question, as: :question, url: url, remote: true do |f|
+  =f.input :data
+  =f.input :type, collection: Round::Base.question_types
+  =f.button :submit, submit_title

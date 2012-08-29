@@ -1,1 +1,16 @@
-$('#round').html('<%=j(render 'rounds/form', round: @round, submit_title: "Update Round", url: round_path(@round))%>');
+$('#round-info').html('<%=j(render 'rounds/form', round: @round, submit_title: "Update Round", url: round_path(@round))%>');
+$('#round-button').html('');
+
+$('#round-link').click();
+
+$('#questions').html('<%=j(render 'questions/list', round: @round)%>');
+$('#questions-link').click();
+$(".round_question").droppable({
+  accept: ".question",
+  activeClass: "ui-state-hover",
+  hoverClass: "ui-state-active",
+  drop: function(event,ui) { 
+    handleDrop( $(this), ui.draggable ) 
+  }
+});
+$('#round-<%= @round.id %>-categories').append('<%= j(render 'object_categories/new', object: @round) %>')

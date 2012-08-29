@@ -1,0 +1,2 @@
+$('#question').children().html('');
+$('#question-info').html('<%=j(render 'questions/form', question: @question, submit_title: "Create Question", url: questions_path)%>');

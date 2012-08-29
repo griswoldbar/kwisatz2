@@ -1,0 +1,5 @@
+<%= render file: 'rounds/show'%>
+
+$(".round_question[relation='question-<%= @question.id %>'], #question-<%= @question.id %>")
+	.find(".question_data")
+		.html('<%= j(render 'questions/question_data', question: @question)%>')

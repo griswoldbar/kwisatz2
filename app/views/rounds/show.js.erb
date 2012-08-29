@@ -1,0 +1,5 @@
+$('#round-info').html('<%=j(render 'rounds/details', round: @round)%>');
+$('#round_questions').html('<%=j(render 'round_questions/list', round: @round)%>');
+$('#round-button').html('<%=j(button_to 'Edit', edit_round_path(@round), remote: true, method: :get)%>');
+$('#round_categories').html('<%=j(render 'object_categories/list', object: @round) %>')
+$('#round-link').click();

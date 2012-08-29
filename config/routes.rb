@@ -3,9 +3,9 @@ Kwisatz2::Application.routes.draw do
 
   resources :rounds
   resources :quizzes
+  resources :questions
   resources :quiz_rounds, :only => [:show,:create,:index,:update, :destroy]
-  resources :questions, :only => [:show,:create,:index,:update, :destroy]
-  resources :round_questions, :only => [:update]
+  resources :round_questions, :only => [:show,:create,:index,:update, :destroy]
   resources :object_categories, :only => [:create]
 
   match '/contact', :to => 'pages#contact'

@@ -1,1 +1,2 @@
-$('#round').html('<%=j(render 'rounds/form', round: @round, submit_title: "Create Round", url: rounds_path)%>');
+$('#round').children().html('');
+$('#round-info').html('<%=j(render 'rounds/form', round: @round, submit_title: "Create Round", url: rounds_path)%>');

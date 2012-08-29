@@ -1,0 +1,22 @@
+.well#round_questions-container
+  %h2 Questions
+  %ul.thumbnails#round_questions-area
+    = render partial: 'round_questions/round_question', collection: round.round_questions, as: :round_question
+
+:javascript
+  $( "#round_questions-area" ).sortable({
+    handle: $('.sorty'),
+    
+    over: function () {
+      removeIntent = false;
+    },
+    out: function () {
+      removeIntent = true;
+    },
+    beforeStop: function (event, ui) {
+      if(removeIntent == true){
+        handleOut(ui.item);
+      }
+    }
+  });
+  $( "#round_questions-area" ).disableSelection();

@@ -1,0 +1,7 @@
+%li.thumbnail.round_question{id: "round_question-#{round_question.id}", relation: "question-#{(round_question.round ? round_question.question.id : 0)}" }
+  %div.sorty Drag me
+  .data
+    -if round_question.question.present?
+      = render "questions/question_data", question: round_question.question
+    -else
+      Drag question here

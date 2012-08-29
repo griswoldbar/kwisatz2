@@ -8,4 +8,5 @@ $(".quiz_round").droppable({
   drop: function(event,ui) { 
     handleDrop( $(this), ui.draggable ) 
   }
-})
+});
+$('#quiz-<%= @quiz.id %>-categories').append('<%= j(render 'object_categories/new', object: @quiz) %>')

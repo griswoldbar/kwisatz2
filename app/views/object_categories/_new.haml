@@ -1,0 +1,14 @@
+- element_id = "#{base_name(object)}-#{object.id}-new_category"
+%li.span3.thumbnail.object_category.new_category{id: element_id}
+  .data
+    %span Add category
+
+:javascript
+  $('.new_category').droppable({
+    accept: ".category",
+    activeClass: "ui-state-hover",
+    hoverClass: "ui-state-active",
+    drop: function(event,ui) { 
+      handleDropAdd( $(this), ui.draggable, 'object_categories' )
+    }
+  })

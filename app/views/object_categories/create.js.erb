@@ -1,0 +1,6 @@
+$('#<%= "#{base_name(@object)}-#{@object.id}-new_category" %>').remove();
+$('#<%= "#{base_name(@object)}-#{@object.id}-categories" %>')
+  .append(
+	  '<%= j(render 'object_categories/object_category', object_category: @object_category) %>'
+	)
+	.append('<%= j(render 'object_categories/new', object: @object) %>');

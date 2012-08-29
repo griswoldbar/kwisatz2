@@ -1,4 +1,4 @@
 .well
   %h2 Categories
-  %ul.thumbnails#object-categories-area
+  %ul.thumbnails{id: "#{base_name(object)}-#{object.id}-categories"}
     = render partial: 'object_categories/object_category', collection: object.object_categories, as: :object_category

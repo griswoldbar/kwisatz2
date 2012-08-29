@@ -25,8 +25,15 @@ function handleDrop(target, source) {
 	// target.classList.remove('over');
 	target.attr('relation', sourceId) //put id of source into target so
    
-	addToCollection(sourceId,targetId);
+	addToJoinModel(sourceId,targetId);
 
+}
+
+function handleDropAdd (target, source, joinModel) {
+  sourceId = source.attr('id');
+	targetId = target.attr('id');
+	 // Set the source column's HTML to the HTML of the column we dropped on.	
+	addToCollection(sourceId, targetId, joinModel);
 }
 
 

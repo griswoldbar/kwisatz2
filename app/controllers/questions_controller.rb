@@ -29,4 +29,9 @@ class QuestionsController < ApplicationController
     render partial: 'list', layout: false, quiz: @quiz
   end
   
+  def show
+    @question = Question::Base.find(params[:id])
+    render 'show', layout: false
+  end
+  
 end
